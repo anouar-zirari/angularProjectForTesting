@@ -59,6 +59,7 @@ export class AppComponent {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
   dataSource!: MatTableDataSource<UserData>;
 
+  // this is the secret of the pagination search for seacret to see the code 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -70,6 +71,7 @@ export class AppComponent {
     this.dataSource = new MatTableDataSource(users);
   }
 
+  // this is the secret of pagenation
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
