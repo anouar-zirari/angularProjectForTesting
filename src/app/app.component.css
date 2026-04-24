@@ -1,56 +1,77 @@
-/* Remove default spacing */
-.search-option {
-  height: auto !important;
-  padding: 8px 10px;
-  cursor: default;
+.container {
+  width: 800px;
 }
 
-/* Container */
-.search-container {
+/* Header */
+.header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  background: #f5f7fa;
-  border-radius: 12px;
-  padding: 8px 12px;
-  border: 1px solid transparent;
-  transition: all 0.25s ease;
+  font-size: 18px;
+  margin-bottom: 16px;
 }
 
-/* Icon */
-.search-icon {
-  font-size: 14px;
-  color: #888;
+/* Card */
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
-/* Input */
-.search-input {
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 100%;
-  font-size: 14px;
-  color: #333;
+.card-title {
+  padding: 10px 16px;
+  color: white;
+  font-weight: 500;
 }
 
-/* Placeholder */
-.search-input::placeholder {
-  color: #aaa;
+.card-title.blue {
+  background: #2563eb;
 }
 
-/* Hover */
-.search-container:hover {
-  background: #eef1f6;
+.card-title.dark {
+  background: #4b5563;
 }
 
-/* Focus effect */
-.search-container:focus-within {
-  background: #fff;
-  border-color: #3f51b5;
-  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.15);
+/* Grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
 }
 
-/* Remove top padding of dropdown */
-.mat-select-panel {
-  padding-top: 0 !important;
+/* Upload */
+.upload-box {
+  border: 2px dashed #d1d5db;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+  height: 120px;
+  cursor: pointer;
+}
+
+/* Activities */
+.activity-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  padding: 16px;
+}
+
+.flags label,
+.params label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* 9 combo grid */
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }

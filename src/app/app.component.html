@@ -1,24 +1,96 @@
-<mat-form-field appearance="outline" style="width: 300px;">
-  <mat-label>Select item</mat-label>
+<mat-dialog-content class="container">
 
-  <mat-select [formControl]="control">
-    
-    <!-- Search -->
-    <mat-option class="search-option">
-      <div class="search-container" (click)="$event.stopPropagation()">
-        <span class="search-icon">🔍</span>
-        <input
-          class="search-input"
-          placeholder="Search..."
-          (keyup)="filterList($event)"
-        />
+  <!-- Title -->
+  <div class="header">
+    <span>New Work Request</span>
+    <button mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <!-- ===================== -->
+  <!-- Request Information -->
+  <!-- ===================== -->
+  <div class="card">
+    <div class="card-title blue">Request Information</div>
+
+    <div class="grid-2">
+      <!-- Site -->
+      <mat-form-field appearance="outline">
+        <mat-label>Site *</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let site of sites" [value]="site">
+            {{ site }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Title -->
+      <mat-form-field appearance="outline">
+        <mat-label>Title *</mat-label>
+        <input matInput placeholder="Enter request title..." />
+      </mat-form-field>
+    </div>
+
+    <div class="grid-2">
+      <!-- Description -->
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="5"></textarea>
+      </mat-form-field>
+
+      <!-- Image Upload -->
+      <div class="upload-box">
+        <mat-icon>upload</mat-icon>
+        <p>Click to upload or drag & drop</p>
+        <small>PNG, JPG up to 10MB</small>
+        <input type="file" multiple hidden />
       </div>
-    </mat-option>
+    </div>
+  </div>
 
-    <!-- Options -->
-    <mat-option *ngFor="let item of filteredList" [value]="item">
-      {{ item }}
-    </mat-option>
+  <!-- ===================== -->
+  <!-- Activities -->
+  <!-- ===================== -->
+  <div class="card">
+    <div class="card-title dark">Request Activities Description</div>
 
-  </mat-select>
-</mat-form-field>
+    <div class="activity-container">
+
+      <!-- LEFT: CHECKBOXES -->
+      <div class="flags">
+        <label>Activity Flags</label>
+
+        <mat-checkbox>Structural Work</mat-checkbox>
+        <mat-checkbox>Electrical Work</mat-checkbox>
+        <mat-checkbox>Plumbing Work</mat-checkbox>
+        <mat-checkbox>Mechanical Work</mat-checkbox>
+      </div>
+
+      <!-- RIGHT: 9 COMBOBOXES -->
+      <div class="params">
+        <label>Activity Parameters</label>
+
+        <div class="combo-grid">
+          <mat-form-field appearance="outline" *ngFor="let i of combos">
+            <mat-label>Option {{ i }}</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let item of options" [value]="item">
+                {{ item }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</mat-dialog-content>
+
+<!-- ACTIONS -->
+<mat-dialog-actions align="end">
+  <button mat-button>CANCEL</button>
+  <button mat-flat-button color="primary">OK</button>
+</mat-dialog-actions>
